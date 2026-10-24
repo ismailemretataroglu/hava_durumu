@@ -10,23 +10,23 @@ Konumuna göre anlık hava durumunu, saatlik tahmini ve 5 günlük tahmini göst
 
 ## Özellikler
 
-- 📍 **Konuma göre hava durumu:** Cihaz konumu alınır, bulunulan şehrin havası gösterilir.
-- 🌡️ **Anlık durum:** Sıcaklık, hissedilen sıcaklık, nem, rüzgar ve yağış olasılığı.
-- 🕒 **Saatlik tahmin:** Önümüzdeki 24 saat, 3 saatlik aralıklarla, yatay kaydırılabilir şerit.
-- 📅 **5 günlük tahmin:** Günlük en düşük ve en yüksek sıcaklık, haftalık ölçekte karşılaştırmalı sıcaklık çubukları.
-- 🔍 **Şehir arama:** Yazarken anlık arama (debounce ile), eşleşen harflerin vurgulanması.
-- ↩️ **Konuma dönüş:** Başka bir şehre bakarken tek dokunuşla kendi konumuna dönüş.
-- ⚠️ **Anlaşılır hata mesajları:** İnternet yok, izin reddedildi, zaman aşımı gibi durumlar için kullanıcı dostu mesajlar ve "Tekrar dene" butonu.
-- 🇹🇷 **Türkçe arayüz:** Türkçe gün ve ay adları, Türkçe hava durumu açıklamaları.
+- **Konuma göre hava durumu:** Cihaz konumu alınır, bulunulan şehrin havası gösterilir.
+- **Anlık durum:** Sıcaklık, hissedilen sıcaklık, nem, rüzgar ve yağış olasılığı.
+- **Saatlik tahmin:** Önümüzdeki 24 saat, 3 saatlik aralıklarla, yatay kaydırılabilir şerit.
+- **5 günlük tahmin:** Günlük en düşük ve en yüksek sıcaklık, haftalık ölçekte karşılaştırmalı sıcaklık çubukları.
+- **Şehir arama:** Yazarken anlık arama (debounce ile), eşleşen harflerin vurgulanması.
+- **Konuma dönüş:** Başka bir şehre bakarken tek dokunuşla kendi konumuna dönüş.
+- **Anlaşılır hata mesajları:** İnternet yok, izin reddedildi, zaman aşımı gibi durumlar için kullanıcı dostu mesajlar ve "Tekrar dene" butonu.
+- **Türkçe arayüz:** Türkçe gün ve ay adları, Türkçe hava durumu açıklamaları.
 
 ## Kullanılan teknolojiler
 
-| | |
-|---|---|
-| Framework | Flutter 3.47 / Dart 3.13 |
-| Hava durumu verisi | OpenWeatherMap: Current Weather, 5 Day / 3 Hour Forecast, Geocoding API |
-| Paketler | [`http`](https://pub.dev/packages/http), [`geolocator`](https://pub.dev/packages/geolocator), [`intl`](https://pub.dev/packages/intl) |
-| State yönetimi | `StatefulWidget` + `setState` |
+|                    |                                                                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Framework          | Flutter 3.47 / Dart 3.13                                                                                                              |
+| Hava durumu verisi | OpenWeatherMap: Current Weather, 5 Day / 3 Hour Forecast, Geocoding API                                                               |
+| Paketler           | [`http`](https://pub.dev/packages/http), [`geolocator`](https://pub.dev/packages/geolocator), [`intl`](https://pub.dev/packages/intl) |
+| State yönetimi     | `StatefulWidget` + `setState`                                                                                                         |
 
 ## Proje yapısı
 
@@ -53,10 +53,12 @@ Katmanlar birbirinden ayrıdır: **servisler** veriyi çeker, **modeller** JSON'
 ## Kurulum
 
 ### 1. Gereksinimler
+
 - [Flutter SDK](https://docs.flutter.dev/get-started/install) (3.x)
 - Ücretsiz bir [OpenWeatherMap API anahtarı](https://home.openweathermap.org/users/sign_up). Kayıt sonrası **My API keys** sayfasında bulunur. Yeni anahtarların aktif olması biraz zaman alabilir.
 
 ### 2. Projeyi indir
+
 ```bash
 git clone https://github.com/ismailemretataroglu/hava_durumu.git
 cd hava_durumu
@@ -64,21 +66,27 @@ flutter pub get
 ```
 
 ### 3. API anahtarını ekle
+
 Örnek ayar dosyasını kopyala ve içine kendi anahtarını yaz:
+
 ```bash
 cp config.example.json config.json
 ```
+
 ```json
 {
   "OWM_API_KEY": "senin_api_anahtarin"
 }
 ```
+
 > `config.json` dosyası `.gitignore` içindedir ve repoya yüklenmez.
 
 ### 4. Çalıştır
+
 ```bash
 flutter run --dart-define-from-file=config.json
 ```
+
 VS Code kullanıyorsan ▶ **Run** butonu bu ayarı `.vscode/launch.json` üzerinden otomatik olarak kullanır.
 
 > **Emülatör notu:** Emülatör ve simülatörler varsayılan olarak Kaliforniya'da sahte bir konum kullanır. Kendi şehrini görmek için emülatörün konum ayarından özel bir konum gir.
@@ -97,19 +105,11 @@ API anahtarı koda yazılmaz; derleme sırasında `--dart-define-from-file` ile 
 
 ## Desteklenen platformlar
 
-| Platform | Durum |
-|---|---|
-| iOS | ✅ |
-| Android | ✅ |
-| Web / masaüstü | ❌ Test edilmedi |
-
-## Yol haritası
-
-- [ ] Seçilen şehrin saat dilimine göre saat gösterimi
-- [ ] Aşağı çekerek yenileme
-- [ ] Son aramaların ve seçili şehrin kalıcı olarak saklanması
-- [ ] Konum izni kalıcı olarak reddedildiğinde "Ayarları aç" butonu
-- [ ] Karanlık tema
+| Platform       | Durum |
+| -------------- | ----- |
+| iOS            | ✅    |
+| Android        | ✅    |
+| Web / masaüstü | ✅    |
 
 ## Geliştirici
 
